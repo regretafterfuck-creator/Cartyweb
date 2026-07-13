@@ -65,21 +65,22 @@
 
 <div class="box">
 
-<h2>Settings</h2>
-
-<select>
-<option>Dark Theme</option>
-<option>Light Theme</option>
-<option>Blue Theme</option>
-<option>Green Theme</option>
+<select id="themeSelect" onchange="changeTheme(this.value)">
+<option value="dark">Dark Theme</option>
+<option value="light">Light Theme</option>
+<option value="blue">Blue Theme</option>
+<option value="green">Green Theme</option>
 </select>
 
 
-<select>
-<option>Arial</option>
-<option>Verdana</option>
-<option>Georgia</option>
-</select>
+<h2>Font</h2>
+
+<select onchange="changeFont(this.value)">
+<option value="Arial">Arial</option>
+<option value="Georgia">Georgia</option>
+<option value="Verdana">Verdana</option>
+<option value="Courier New">Courier</option>
+  </select>
 
 </div>
 
