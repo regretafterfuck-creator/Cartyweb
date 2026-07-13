@@ -8,23 +8,22 @@
 <body>
 
 <div class="sidebar">
+
 <h2>Cartypanel</h2>
 
-<a>Dashboard</a>
-<a>Wallet</a>
-<a>Profile</a>
-<a>Settings</a>
+<a onclick="showPage('dashboard')">Dashboard</a>
+<a onclick="showPage('wallet')">Wallet</a>
+<a onclick="showPage('profile')">Profile</a>
+<a onclick="showPage('settings')">Settings</a>
 
 </div>
 
 
 <div class="main">
 
-<div class="top">
-<h1>Dashboard</h1>
-<button>Logout</button>
-</div>
+<div id="content">
 
+<h1>Welcome Dashboard</h1>
 
 <div class="cards">
 
@@ -33,16 +32,18 @@
 <h1>$0.00</h1>
 </div>
 
-
 <div class="box">
 <h3>Total Deposit</h3>
 <h1>$0</h1>
 </div>
 
-
 <div class="box">
 <h3>Transactions</h3>
 <h1>0</h1>
+</div>
+
+</div>
+
 </div>
 
 </div>
