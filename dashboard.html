@@ -1,174 +1,88 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cartypanel Dashboard</title>
-
-<style>
-:root{
-  --bg:#111;
-  --card:#1e1e1e;
-  --text:white;
-}
-
-body{
-  margin:0;
-  font-family:Arial;
-  background:var(--bg);
-  color:var(--text);
-  transition:.3s;
-}
-
-.nav{
-  padding:20px;
-  background:#222;
-  display:flex;
-  justify-content:space-between;
-}
-
-.container{
-  padding:20px;
-}
-
-.card{
-  background:var(--card);
-  padding:20px;
-  border-radius:15px;
-  margin:15px 0;
-}
-
-button,select,input{
-  padding:10px;
-  border-radius:8px;
-  border:none;
-  margin:5px;
-}
-
-button{
-  cursor:pointer;
-}
-
-.balance{
-  font-size:30px;
-  font-weight:bold;
-}
-</style>
-
+<title>Cartypanel</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="nav">
+<div class="sidebar">
 <h2>Cartypanel</h2>
-<span>Dashboard</span>
+
+<a>Dashboard</a>
+<a>Wallet</a>
+<a>Profile</a>
+<a>Settings</a>
+
 </div>
 
 
-<div class="container">
+<div class="main">
 
-<div class="card">
-<h3>Account Balance</h3>
-<div class="balance">$0.00</div>
+<div class="top">
+<h1>Dashboard</h1>
+<button>Logout</button>
+</div>
+
+
+<div class="cards">
+
+<div class="box">
+<h3>Balance</h3>
+<h1>$0.00</h1>
+</div>
+
+
+<div class="box">
+<h3>Total Deposit</h3>
+<h1>$0</h1>
+</div>
+
+
+<div class="box">
+<h3>Transactions</h3>
+<h1>0</h1>
+</div>
+
+</div>
+
+
+
+<div class="box">
+
+<h2>Wallet</h2>
+
+<input placeholder="Enter amount">
+
 <button>Add Fund</button>
-</div>
-
-
-<div class="card">
-<h3>Theme Settings</h3>
-
-<button onclick="theme('dark')">Dark</button>
-<button onclick="theme('light')">Light</button>
-<button onclick="theme('blue')">Blue</button>
-<button onclick="theme('green')">Green</button>
 
 </div>
 
 
-<div class="card">
 
-<h3>Font Change</h3>
+<div class="box">
 
-<select onchange="fontChange(this.value)">
-<option value="Arial">Arial</option>
-<option value="Georgia">Georgia</option>
-<option value="Courier New">Courier</option>
-<option value="Verdana">Verdana</option>
+<h2>Settings</h2>
+
+<select>
+<option>Dark Theme</option>
+<option>Light Theme</option>
+<option>Blue Theme</option>
+<option>Green Theme</option>
+</select>
+
+
+<select>
+<option>Arial</option>
+<option>Verdana</option>
+<option>Georgia</option>
 </select>
 
 </div>
 
 
-<div class="card">
-
-<h3>Currency Exchanger</h3>
-
-<input id="amount" placeholder="Amount">
-
-<select id="currency">
-<option>USD</option>
-<option>INR</option>
-<option>EUR</option>
-</select>
-
-<button onclick="exchange()">Convert</button>
-
-<p id="result"></p>
-
 </div>
-
-
-</div>
-
-
-<script>
-
-function theme(t){
-
-if(t=="dark"){
-document.documentElement.style.setProperty("--bg","#111");
-document.documentElement.style.setProperty("--card","#1e1e1e");
-}
-
-if(t=="light"){
-document.documentElement.style.setProperty("--bg","#eee");
-document.documentElement.style.setProperty("--card","#fff");
-document.documentElement.style.setProperty("--text","#000");
-}
-
-if(t=="blue"){
-document.documentElement.style.setProperty("--bg","#061a40");
-document.documentElement.style.setProperty("--card","#003566");
-}
-
-if(t=="green"){
-document.documentElement.style.setProperty("--bg","#052e16");
-document.documentElement.style.setProperty("--card","#14532d");
-}
-
-}
-
-
-function fontChange(f){
-document.body.style.fontFamily=f;
-}
-
-
-function exchange(){
-
-let amount=document.getElementById("amount").value;
-let cur=document.getElementById("currency").value;
-
-let rate={
-USD:83,
-EUR:90,
-INR:1
-};
-
-document.getElementById("result").innerHTML=
-amount+" "+cur+" = "+(amount*rate[cur])+" INR";
-
-}
-
-</script>
 
 </body>
 </html>
