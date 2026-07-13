@@ -127,7 +127,20 @@
             <a href="#">Create an account</a>
         </p>
     </div>
+<script>
+function login(event){
+    event.preventDefault();
 
+    let user = document.getElementById("first").value;
+    let pass = document.getElementById("password").value;
+
+    if(user === "admin" && pass === "12345"){
+        alert("Login Successful");
+    }else{
+        alert("Wrong Username or Password");
+    }
+}
+       </script>
 </body>
 
 </html>
