@@ -1,158 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rental Panel</title>
+<title>Cartypanel Dashboard</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+:root{
+  --bg:#111;
+  --card:#1e1e1e;
+  --text:white;
 }
 
 body{
-background:#f5f5f5;
+  margin:0;
+  font-family:Arial;
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s;
 }
 
-.header{
-background:#fff;
-padding:18px 20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,.1);
-position:sticky;
-top:0;
-}
-
-.header h2{
-color:#555;
-font-weight:500;
-}
-
-.menu{
-font-size:28px;
-cursor:pointer;
+.nav{
+  padding:20px;
+  background:#222;
+  display:flex;
+  justify-content:space-between;
 }
 
 .container{
-max-width:700px;
-margin:auto;
-padding:20px;
-}
-
-.menu-box{
-background:#fff;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 3px 10px rgba(0,0,0,.08);
-margin-bottom:20px;
-}
-
-.menu-box a{
-display:block;
-padding:18px;
-text-decoration:none;
-font-size:18px;
-color:#2d6ea3;
-border-bottom:1px solid #eee;
-transition:.3s;
-}
-
-.menu-box a:hover{
-background:#f7f7f7;
-padding-left:28px;
-}
-
-.title{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin:25px 0;
-}
-
-.title h1{
-font-size:45px;
-}
-
-.order-btn{
-padding:12px 22px;
-border:2px solid #4CAF50;
-color:#4CAF50;
-background:#fff;
-border-radius:8px;
-cursor:pointer;
-font-size:18px;
-}
-
-.support{
-background:linear-gradient(135deg,#18d36b,#09b57c);
-color:#fff;
-padding:25px;
-border-radius:15px;
-box-shadow:0 10px 20px rgba(0,0,0,.15);
-}
-
-.support h2{
-margin-bottom:15px;
-}
-
-.support p{
-font-size:18px;
-line-height:1.6;
-margin-bottom:20px;
-}
-
-.whatsapp{
-display:block;
-background:#fff;
-color:#1fa855;
-text-align:center;
-padding:15px;
-font-size:24px;
-font-weight:bold;
-text-decoration:none;
-border-radius:10px;
+  padding:20px;
 }
 
 .card{
-margin-top:25px;
-background:#fff;
-border-radius:12px;
-padding:20px;
-box-shadow:0 3px 10px rgba(0,0,0,.1);
+  background:var(--card);
+  padding:20px;
+  border-radius:15px;
+  margin:15px 0;
 }
 
-.card h3{
-margin-bottom:15px;
+button,select,input{
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  margin:5px;
 }
 
-.stat{
-display:flex;
-justify-content:space-between;
-padding:12px 0;
-border-bottom:1px solid #eee;
+button{
+  cursor:pointer;
 }
 
-@media(max-width:600px){
-
-.title{
-flex-direction:column;
-align-items:flex-start;
-gap:15px;
-}
-
-.title h1{
-font-size:38px;
-}
-
-.order-btn{
-width:100%;
-}
-
+.balance{
+  font-size:30px;
+  font-weight:bold;
 }
 </style>
 
@@ -160,67 +57,118 @@ width:100%;
 
 <body>
 
-<div class="header">
-<h2>CART YOUR WEB</h2>
-<div class="menu">☰</div>
+<div class="nav">
+<h2>Cartypanel</h2>
+<span>Dashboard</span>
 </div>
+
 
 <div class="container">
 
-<div class="menu-box">
-<a href="#">🚪 Logout</a>
-<a href="#">📋 Panels</a>
-<a href="#">📦 Child Panels</a>
-<a href="#">💵 Invoices</a>
-<a href="#">💰 Add Funds</a>
-<a href="#">👥 Referrals</a>
-<a href="#">⚙️ Settings</a>
+<div class="card">
+<h3>Account Balance</h3>
+<div class="balance">$0.00</div>
+<button>Add Fund</button>
 </div>
 
-<div class="title">
-<h1>Panels</h1>
-<button class="order-btn">Order New Panel</button>
-</div>
-
-<div class="support">
-<h2>📱 Support Number Updated!</h2>
-
-<p>
-We've updated our WhatsApp support number.<br>
-Our new support number is <b>+91 6900365026</b>
-</p>
-
-<a class="whatsapp" href="#">
-💬 Chat on WhatsApp
-</a>
-</div>
 
 <div class="card">
-<h3>Dashboard Overview</h3>
+<h3>Theme Settings</h3>
 
-<div class="stat">
-<span>Active Panels</span>
-<b>12</b>
-</div>
-
-<div class="stat">
-<span>Pending Orders</span>
-<b>2</b>
-</div>
-
-<div class="stat">
-<span>Total Balance</span>
-<b>$00</b>
-</div>
-
-<div class="stat">
-<span>Invoices</span>
-<b>4</b>
-</div>
+<button onclick="theme('dark')">Dark</button>
+<button onclick="theme('light')">Light</button>
+<button onclick="theme('blue')">Blue</button>
+<button onclick="theme('green')">Green</button>
 
 </div>
 
+
+<div class="card">
+
+<h3>Font Change</h3>
+
+<select onchange="fontChange(this.value)">
+<option value="Arial">Arial</option>
+<option value="Georgia">Georgia</option>
+<option value="Courier New">Courier</option>
+<option value="Verdana">Verdana</option>
+</select>
+
 </div>
+
+
+<div class="card">
+
+<h3>Currency Exchanger</h3>
+
+<input id="amount" placeholder="Amount">
+
+<select id="currency">
+<option>USD</option>
+<option>INR</option>
+<option>EUR</option>
+</select>
+
+<button onclick="exchange()">Convert</button>
+
+<p id="result"></p>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+function theme(t){
+
+if(t=="dark"){
+document.documentElement.style.setProperty("--bg","#111");
+document.documentElement.style.setProperty("--card","#1e1e1e");
+}
+
+if(t=="light"){
+document.documentElement.style.setProperty("--bg","#eee");
+document.documentElement.style.setProperty("--card","#fff");
+document.documentElement.style.setProperty("--text","#000");
+}
+
+if(t=="blue"){
+document.documentElement.style.setProperty("--bg","#061a40");
+document.documentElement.style.setProperty("--card","#003566");
+}
+
+if(t=="green"){
+document.documentElement.style.setProperty("--bg","#052e16");
+document.documentElement.style.setProperty("--card","#14532d");
+}
+
+}
+
+
+function fontChange(f){
+document.body.style.fontFamily=f;
+}
+
+
+function exchange(){
+
+let amount=document.getElementById("amount").value;
+let cur=document.getElementById("currency").value;
+
+let rate={
+USD:83,
+EUR:90,
+INR:1
+};
+
+document.getElementById("result").innerHTML=
+amount+" "+cur+" = "+(amount*rate[cur])+" INR";
+
+}
+
+</script>
 
 </body>
 </html>
